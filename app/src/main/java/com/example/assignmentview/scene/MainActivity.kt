@@ -21,10 +21,10 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     private fun observeData() {
-        viewModel.bitMap.observe(
+        viewModel.imageList.observe(
             this,
             {
-
+                binder.assignmentView.setup(it)
             }
         )
     }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AssignmentView</string>
+    <string name="print_before_execute">Do in background</string>
+    <string name="print_post_execute">On post execute</string>
+    <string name="print_time_difference">Difference</string>
+    <string name="print_at">at %1s</string>
+    <string name="print_diff">%1s</string>
 </resources>
