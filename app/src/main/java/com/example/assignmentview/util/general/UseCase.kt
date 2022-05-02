@@ -17,8 +17,4 @@ abstract class UseCase<out Type : Any?, in Params>(
             Either.Left(failure)
         }
     }
-
-    object None {
-        override fun toString() = "UseCase.None"
-    }
 }

@@ -14,5 +14,28 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binder.lifecycleOwner = this
+
+        initListeners()
+
+        observeData()
+    }
+
+    private fun observeData() {
+        viewModel.imageList.observe(
+            this,
+            {
+                binder.assignmentView.setup(it)
+            }
+        )
+    }
+
+    private fun initListeners() {
+        binder.assignmentView.onSpinnerSelected = {
+            viewModel.fetchImages(true, it)
+        }
+
+        binder.assignmentView.onUrlSelectionClicked = {
+            viewModel.fetchImages(false)
+        }
     }
 }
