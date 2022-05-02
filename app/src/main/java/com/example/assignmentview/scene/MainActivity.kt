@@ -30,8 +30,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     private fun initListeners() {
-        binder.assignmentView.onBitmapSelectionClicked = {
-            viewModel.fetchImages(true)
+        binder.assignmentView.onSpinnerSelected = {
+            viewModel.fetchImages(true, it)
         }
 
         binder.assignmentView.onUrlSelectionClicked = {

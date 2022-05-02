@@ -5,6 +5,15 @@
     <string name="print_time_difference">Difference</string>
     <string name="print_at">at %1s</string>
     <string name="print_diff">%1s</string>
-    <string name="assignment_view_bitmap_selection">Load Bitmap</string>
-    <string name="assignment_view_url_selection">Load Url</string>
+    <string name="assignment_view_url_selection">Mock Urls</string>
+    <string-array name="imageTypes">
+        <item>JPEG</item>
+        <item>PNG</item>
+        <item>SVG</item>
+        <item>WEBP</item>
+    </string-array>
+    <string name="jpeg">jpeg</string>
+    <string name="png">png</string>
+    <string name="svg">svg</string>
+    <string name="webp">webp</string>
 </resources>

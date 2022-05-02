@@ -9,6 +9,6 @@ class ImageRepository @Inject constructor(
     private val imagesRemoteDataSource: ImageRemoteDataSource
 ) {
 
-    suspend fun getImagesInBitmap() =
-        imagesRemoteDataSource.getImagesInBitmap()
+    suspend fun getImagesInBitmap(imageType: String?) =
+        imagesRemoteDataSource.getImagesInBitmap(imageType = imageType)
 }

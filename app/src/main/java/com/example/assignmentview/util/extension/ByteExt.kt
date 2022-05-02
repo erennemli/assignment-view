@@ -5,5 +5,5 @@ import android.graphics.BitmapFactory
 
 private const val OFFSET = 0
 
-fun decodeByteArray(byteArray: ByteArray): Bitmap =
+fun decodeByteArray(byteArray: ByteArray): Bitmap? =
     BitmapFactory.decodeByteArray(byteArray, OFFSET, byteArray.size)

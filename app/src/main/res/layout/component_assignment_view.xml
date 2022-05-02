@@ -8,15 +8,13 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_12">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_view_bitmap_selection"
-            style="@style/AssignmentViewTitle"
+        <Spinner
+            android:id="@+id/spinner_image_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_12"
             android:background="@drawable/bg_assignment_view_option"
             android:padding="@dimen/margin_12"
-            android:text="@string/assignment_view_bitmap_selection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_bitmap_selection"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_url_selection"
             tools:listitem="@layout/item_assignment_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

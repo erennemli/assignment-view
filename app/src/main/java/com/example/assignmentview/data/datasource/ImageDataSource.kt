@@ -10,7 +10,7 @@ class ImageRemoteDataSource @Inject constructor(
     private val imagesService: ImageService
 ) : BaseRemoteDataSource() {
 
-    suspend fun getImagesInBitmap() = invoke {
-        imagesService.getImagesInBitmap()
+    suspend fun getImagesInBitmap(imageType: String?) = invoke {
+        imagesService.getImagesInBitmap(imageType = imageType)
     }
 }

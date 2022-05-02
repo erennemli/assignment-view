@@ -9,8 +9,10 @@ import javax.inject.Inject
 class ImageUseCase @Inject constructor(
     dispatcher: CoroutineDispatcher,
     private val imagesRepository: ImageRepository
-) : UseCase<ResponseBody, UseCase.None>(dispatcher) {
+) : UseCase<ResponseBody, ImageUseCase.Params>(dispatcher) {
 
-    override suspend fun buildUseCase(params: None): ResponseBody =
-        imagesRepository.getImagesInBitmap()
+    override suspend fun buildUseCase(params: Params): ResponseBody =
+        imagesRepository.getImagesInBitmap(imageType = params.imageType)
+
+    data class Params(val imageType: String?)
 }
