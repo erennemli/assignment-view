@@ -6,5 +6,5 @@ import java.io.IOException
 
 sealed class Failure : IOException(), Parcelable {
     @Parcelize
-    class UnknownError(val exception: Exception) : Failure()
+    class UnknownError : Failure()
 }

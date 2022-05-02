@@ -33,7 +33,7 @@ object ViewBindingAdapter {
                 override fun onLoadStarted(placeholder: Drawable?) {
                     timeBeforeExecute = fetchCurrentTime()
                     Log.d(
-                        iv.context.getString(R.string.print_post_execute),
+                        iv.context.getString(R.string.print_before_execute),
                         iv.context.getString(R.string.print_at, timeBeforeExecute)
                     )
                 }
