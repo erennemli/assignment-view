@@ -12,5 +12,5 @@ class ImageUseCase @Inject constructor(
 ) : UseCase<ResponseBody, UseCase.None>(dispatcher) {
 
     override suspend fun buildUseCase(params: None): ResponseBody =
-        imagesRepository.getImagesInJpeg()
+        imagesRepository.getImagesInBitmap()
 }

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 interface ImageService {
 
     @GET(IMAGE_JPEG)
-    suspend fun getImagesInJpeg(): ResponseBody
+    suspend fun getImagesInBitmap(): ResponseBody
 
     companion object {
         private const val IMAGE_JPEG = "image/jpeg"
