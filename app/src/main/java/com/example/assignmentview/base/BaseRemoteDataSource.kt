@@ -15,6 +15,6 @@ open class BaseRemoteDataSource {
     private fun asFailure(exception: Exception): Failure {
         return if (exception is Failure) {
             exception
-        } else Failure.UnknownError(exception)
+        } else Failure.UnknownError()
     }
 }
