@@ -1,6 +1,7 @@
 package com.example.assignmentview.util.injection
 
 import com.example.assignmentview.BuildConfig
+import com.example.assignmentview.data.api.ImageService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,4 +35,10 @@ internal class NetworkModule {
             .client(okHttpClient)
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun providesImageService(
+        @Named(BuildConfig.BASE_URL) retrofit: Retrofit
+    ): ImageService = retrofit.create(ImageService::class.java)
 }
