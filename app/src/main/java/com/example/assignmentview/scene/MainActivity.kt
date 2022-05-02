@@ -15,7 +15,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
         binder.lifecycleOwner = this
 
-        viewModel.fetchImages()
+        initListeners()
 
         observeData()
     }
@@ -27,5 +27,15 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
                 binder.assignmentView.setup(it)
             }
         )
+    }
+
+    private fun initListeners() {
+        binder.assignmentView.onBitmapSelectionClicked = {
+            viewModel.fetchImages(true)
+        }
+
+        binder.assignmentView.onUrlSelectionClicked = {
+            viewModel.fetchImages(false)
+        }
     }
 }

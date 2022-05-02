@@ -23,9 +23,7 @@ class MainViewModel @Inject constructor(
 
     val imageList: MutableLiveData<List<ImageUiModel>> = MutableLiveData()
 
-    private var isBitmap = false
-
-    fun fetchImages() {
+    fun fetchImages(isBitmap: Boolean) {
         if (isBitmap) {
             fetchImagesInBitmap()
         } else {
@@ -38,13 +36,13 @@ class MainViewModel @Inject constructor(
     }
 
     private fun fetchImagesInUrl() = viewModelScope.launch {
-        val listOfBoth = listOfImageUrls.map {
+        val listOfImageUrls = listOfImageUrls.map {
             ImageUiModel(
                 url = it,
                 timeBeforeExecute = fetchCurrentTime()
             )
         }
-        imageList.postValue(listOfBoth)
+        imageList.postValue(listOfImageUrls)
     }
 
     private fun handleImagesInBitmap(image: ResponseBody) {

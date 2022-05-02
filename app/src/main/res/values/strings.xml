@@ -5,4 +5,6 @@
     <string name="print_time_difference">Difference</string>
     <string name="print_at">at %1s</string>
     <string name="print_diff">%1s</string>
+    <string name="assignment_view_bitmap_selection">Load Bitmap</string>
+    <string name="assignment_view_url_selection">Load Url</string>
 </resources>

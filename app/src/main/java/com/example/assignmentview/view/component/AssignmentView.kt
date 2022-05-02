@@ -15,7 +15,10 @@ class AssignmentView @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.assignmentView
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val binding: ComponentAssignmentViewBinding = DataBindingUtil.inflate(
+    var onBitmapSelectionClicked: (() -> Unit)? = null
+    var onUrlSelectionClicked: (() -> Unit)? = null
+
+    private val binder: ComponentAssignmentViewBinding = DataBindingUtil.inflate(
         LayoutInflater.from(context),
         R.layout.component_assignment_view,
         this,
@@ -24,8 +27,18 @@ class AssignmentView @JvmOverloads constructor(
 
     private val itemAdapter by lazy { AssignmentViewAdapter() }
 
+    init {
+        binder.textViewBitmapSelection.setOnClickListener {
+            onBitmapSelectionClicked?.invoke()
+        }
+
+        binder.textViewUrlSelection.setOnClickListener {
+            onUrlSelectionClicked?.invoke()
+        }
+    }
+
     fun setup(items: List<ImageUiModel>) {
-        binding.recyclerView.adapter = itemAdapter
+        binder.recyclerView.adapter = itemAdapter
         itemAdapter.items = items.toMutableList()
     }
 }
