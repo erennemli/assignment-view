@@ -15,12 +15,12 @@ top right corner.
 
 Then you will be able to the images of your selection.
 
-**However**
+**However**<br>
 *To actually test the project, one needs Android Studio to check the logs!*
 
 ## To contribute
 
-*libraries*
+*libraries*<br>
 hilt for injection, okhttp and retrofit for network requests, glide for showing images, coroutines
 
 To inject other api services, please refer the following code in NetworkModule.kt 
@@ -36,11 +36,11 @@ In UseCase.kt the method to make the service request, named *run*, is requested 
 is provided with the injected dispatcher. *check UseCase.kt for the previous information*
 
 
-*architecture*
-**clean** 
+*architecture*<br>
+**clean**<br>
 there are data, domain(including use cases) and presentation(scene package) layers
 
-*other used tools*
+*other used tools*<br>
 view binding and data binding, assignment view is created as a component which can be found in
 AssignmentView.kt, additionally its adapter can be found in the same package
 
@@ -56,6 +56,6 @@ images successfully.
 
 ## Possible further actions
 
-*use fragments instead of activity*
-*implement a base adapter for future adapters*
-*implement and handle other network fails in Failure.kt*
+*use fragments instead of activity*<br>
+*implement a base adapter for future adapters*<br>
+*implement and handle other network fails in Failure.kt*<br>
