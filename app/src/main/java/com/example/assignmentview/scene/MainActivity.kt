@@ -15,7 +15,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
         binder.lifecycleOwner = this
 
-        viewModel.fetchImagesInBitmap()
+        viewModel.fetchImages()
 
         observeData()
     }

@@ -8,6 +8,7 @@ import com.example.assignmentview.domain.ImageUseCase
 import com.example.assignmentview.util.extension.decodeByteArray
 import com.example.assignmentview.util.extension.fetchCurrentTime
 import com.example.assignmentview.util.general.UseCase
+import com.example.assignmentview.util.listOfImageUrls
 import com.example.assignmentview.view.uimodel.ImageUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -22,8 +23,28 @@ class MainViewModel @Inject constructor(
 
     val imageList: MutableLiveData<List<ImageUiModel>> = MutableLiveData()
 
-    fun fetchImagesInBitmap() = viewModelScope.launch {
+    private var isBitmap = false
+
+    fun fetchImages() {
+        if (isBitmap) {
+            fetchImagesInBitmap()
+        } else {
+            fetchImagesInUrl()
+        }
+    }
+
+    private fun fetchImagesInBitmap() = viewModelScope.launch {
         imageUseCase.run(UseCase.None).either(::handleFailure, ::handleImagesInBitmap)
+    }
+
+    private fun fetchImagesInUrl() = viewModelScope.launch {
+        val listOfBoth = listOfImageUrls.map {
+            ImageUiModel(
+                url = it,
+                timeBeforeExecute = fetchCurrentTime()
+            )
+        }
+        imageList.postValue(listOfBoth)
     }
 
     private fun handleImagesInBitmap(image: ResponseBody) {
